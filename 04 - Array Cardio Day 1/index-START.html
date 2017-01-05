@@ -73,12 +73,7 @@
       const aLived = a.passed - a.year;
       const bLived = b.passed - b.year;
 
-      if (aLived > bLived) {
-        return -1;
-      }
-      else {
-        return 1;
-      }
+      return aLived > bLived ? 1 : -1;
     });
 
     console.table(oldest);
@@ -109,10 +104,11 @@
     const instances = data.reduce((acc, dat) => {
       if (acc.hasOwnProperty(dat)) {
         acc[dat] = acc[dat] + 1;
+
         return acc;
       }
-
       acc[dat] = 1;
+
       return acc;
     }, {});
 
